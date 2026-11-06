@@ -104,8 +104,9 @@ while IFS= read -r -d '' readme; do
   # Read the template filename from the README frontmatter `template:` field.
   template_filename=$(awk '
   /^---[[:space:]]*$/ { delim++; next }
-  delim == 1 && /^template:/ {
-    sub(/^template:[[:space:]]*/, "")
+  delim == 1 && /^[[:space:]]*template:[[:space:]]*/ {
+    sub(/^[[:space:]]*template:[[:space:]]*/, "")
+    gsub(/^[[:space:]]*["\047]|["\047][[:space:]]*$/, "")
     print
     exit
   }
