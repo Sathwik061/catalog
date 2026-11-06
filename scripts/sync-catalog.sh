@@ -103,9 +103,13 @@ while IFS= read -r -d '' readme; do
 
   # Read the template filename from the README frontmatter `template:` field.
   template_filename=$(awk '
-    /^---[[:space:]]*$/ { delim++; next }
-    delim == 1 && /^template:/ { sub(/^template:[[:space:]]*/, ""); print; exit }
-  ' "${readme}")
+  /^---[[:space:]]*$/ { delim++; next }
+  delim == 1 && /^template:/ {
+    sub(/^template:[[:space:]]*/, "")
+    print
+    exit
+  }
+' "${readme}")
 
   if [[ -z "${template_filename}" ]]; then
     echo "Warning: ${rel_dir}/README.md has no 'template:' frontmatter — skipping." >&2
