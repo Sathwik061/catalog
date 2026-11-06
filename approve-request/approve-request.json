@@ -3,7 +3,7 @@
   "name": "Approve request",
   "id": "com.example.catalog.approve-request",
   "description": "Route a request to a reviewer for approval. im sathwik",
-  "version": 2.1,
+  "version": 3,
   "appliesTo": ["bpmn:Task"],
   "elementType": {
     "value": "bpmn:UserTask"
