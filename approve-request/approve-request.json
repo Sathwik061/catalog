@@ -13,7 +13,7 @@
   },
   "properties": [
     {
-      "type": "Hidden",
+      
       "value": "",
       "binding": {
         "type": "zeebe:userTask"
